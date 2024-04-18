@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MR.sandwich</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: myfont;
+        src: url(restro\ font.ttf);
+      }
+      .nav {
+        width: 100%;
+        height: auto;
+      }
+      nav {
+        height: 5rem;
+        background-color: #2c7865;
+      }
+      .logo {
+        font-family: myfont;
+        margin-top: 3.5vmin;
+      }
+      .color {
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: #ff9800;
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      li {
+        transition: transform 0.4s ease-in-out;
+        margin-top: 4vmin;
+        margin-right: 2vmin;
+      }
+      li:hover {
+        transform: scale(1.2);
+      }
+      i {
+        color: #90d26d;
+        padding: 0px 3px;
+      }
+      .menucolor {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: sans-serif;
+      }
+      .menucolor:hover {
+        color: #90d26d;
+      }
+      .talk {
+        margin-top: 3.7vmin;
+      }
+      .color2 {
+        text-decoration: none;
+        border-radius: 20px;
+        padding: 4px 10px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: white;
+        font-size: 1.5rem;
+        position: relative;
+      }
+      .color2:hover {
+        color: #90d26d;
+      }
+      .color2::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        bottom: 3px;
+        width: 0%;
+        height: 4px;
+        background-color: #ff9800;
+        transition: width 0.4s ease-in-out;
+      }
+      .color2:hover::before {
+        width: 100%;
+      }
+      .img1 {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        filter: blur(1px);
+      }
+      .img2 {
+        filter: blur(2px);
+        display: block;
+        width: 100%;
+        height: fit-content;
+        background-position: center;
+        background-size: cover;
+      }
+      .img3 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 20px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 5%;
+        bottom: 32%;
+      }
+      .img3:hover {
+        transform: translateY(-20%);
+      }
+      .img4 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 20px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 37%;
+        bottom: 32%;
+      }
+      .img4:hover {
+        transform: translateY(-20%);
+      }
+      .img5 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 20px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 70%;
+        bottom: 32%;
+      }
+      .img5:hover {
+        transform: translateY(-20%);
+      }
+      .img6 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 30px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 5%;
+        bottom: 5%;
+      }
+      .img6:hover {
+        transform: translateY(-20%);
+      }
+      .img7 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 20px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 37%;
+        bottom: 5%;
+      }
+      .img7:hover {
+        transform: translateY(-20%);
+      }
+      .img8 {
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0px 0px 20px rgba(63, 240, 216, 0.938);
+        border-radius: 10px;
+        position: absolute;
+        width: 25%;
+        height: 20%;
+        left: 70%;
+        bottom: 5%;
+      }
+      .img8:hover {
+        transform: translateY(-20%);
+      }
+      .img9 {
+        filter: blur(5px);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      .img10 {
+        float: right;
+      }
+      .page1 {
+        position: relative;
+      }
+      .para1 {
+        position: absolute;
+        z-index: 1;
+        color: white;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 6rem;
+        top: 17vmin;
+        left: 5vmin;
+        line-height: 9vmin;
+      }
+      .para2 {
+        position: absolute;
+        z-index: 1;
+        color: #ff9800;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 6rem;
+        top: 43vmin;
+        left: 5vmin;
+      }
+      .para3 {
+        position: absolute;
+        z-index: 1;
+        color: white;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 2.5rem;
+        top: 60vmin;
+        left: 6vmin;
+      }
+      .icons {
+        gap: 18px;
+        left: 4%;
+        bottom: 19%;
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+      }
+      .icons img {
+        transition: 0.3s all ease-in-out;
+        border-radius: 25px;
+        background-color: white;
+        width: 9rem;
+        cursor: pointer;
+      }
+      .icon1 img {
+        box-shadow: 1px 5px 10px #ff9800;
+        padding: 4px 20px;
+      }
+      .icon2 img {
+        box-shadow: 1px 5px 10px rgba(243, 18, 18, 0.904);
+        padding: 7px 20px;
+      }
+      .icon1 img:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .icon2 img:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .page2 {
+        position: relative;
+      }
+      .para4 {
+        position: absolute;
+        z-index: 1;
+        color: white;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 8rem;
+        top: 4vmin;
+        left: 5vmin;
+        line-height: 18vmin;
+      }
+      .para5 {
+        position: absolute;
+        z-index: 1;
+        color: #ff9800;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 8rem;
+        top: 37vmin;
+        left: 5vmin;
+      }
+      .page4 {
+        position: relative;
+      }
+      .storediv {
+        z-index: 1;
+        position: absolute;
+        background-color: #2c7865;
+        width: 80%;
+        top: 0.1%;
+        left: 11%;
+        height: 18%;
+        border-radius: 6px;
+      }
+      .para6 {
+        margin: 8px 6vmin;
+        color: white;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .para7 {
+        font-size: 2.5rem;
+        color: black;
+        font-family: sans-serif;
+        margin-top: 10vmin;
+        margin-left: 32vmin;
+      }
+      .para8{
+        margin-top: 8vmin;
+        font-weight: bold;
+        color: #2cbb7d;
+        text-align: left;
+        font-size: 1.2rem;
+        font-family: sans-serif;
+      }
+      input {
+        width: 20%;
+        margin-top: 3vmin;
+        border: 2px white;
+        height: 6vmin;
+        border-radius: 5px;
+        margin-left: 5%;
+      }
+      input[type="text"] {
+        padding: 0px 3vmin;
+        font-size: 1rem; 
+      }
+      .btn{
+        float: right;
+        margin-right: 22vmin;
+        margin-top: 3vmin;
+      }
+      .btn1 {
+        cursor: pointer;
+        background-color: white;
+        color: rgb(20, 20, 20);
+        border: 1px white;
+        padding: 1.7vmin 3vmin;
+        border-radius: 6px;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      .end {
+        width: 100%;
+        height: 13vmin;
+        background-color: #2c7865;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      .item {
+        margin-top: 2vmin;
+        position: relative;
+        color: #90d26d;
+        font-size: 1.5rem;
+        font-family: sans-serif;
+      }
+      .item a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: white;
+      }
+      .page3 img{
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      @media screen and (max-width: 600px)
+      {
+      .nav {
+        width: 100%;
+        height: 30%;
+      }
+      nav {
+        height: 3rem;
+        background-color: #2c7865;
+      }
+      .logo {
+        margin-top: 1px;
+        margin-bottom: 6vmin;
+      }
+      .color {
+        font-size: 12px;
+      }
+       i{
+        opacity: 0;
+       }
+      .menucolor {
+        margin-bottom: 8vmin;
+        display: flex;
+        font-size: 5px;
+        color: white;
+      }
+      .talk {
+        margin-top: .7vmin;
+        margin-bottom: 5vmin;
+      }
+      .color2 {
+        margin-right: 2vmin;
+        font-size: 9px;
+      }
+      .img1 {
+        width: 100%;
+        height: 30%;
+      }
+      .img2 {
+        filter: blur(2px);
+        display: block;
+        width: 100%;
+        height: fit-content;
+        background-position: center;
+        background-size: cover;
+      }
+      .img3 {
+        width: 28%;
+        height: 23%;
+        left: 3%;
+        bottom: 32%;
+      }
+      .img4 {
+        width: 28%;
+        height: 23%;
+        left: 35%;
+        bottom: 32%;
+      }
+      .img5 {
+        width: 28%;
+        height: 23%;
+        left: 68%;
+        bottom: 32%;
+      }
+      .img6 {
+        width: 28%;
+        height: 23%;
+        left: 3%;
+        bottom: 5%;
+      }
+      .img7 {
+        width: 28%;
+        height: 23%;
+        left: 35%;
+        bottom: 5%;
+      }
+      .img8 {
+        width: 28%;
+        height: 23%;
+        left: 68%;
+        bottom: 5%;
+      }
+      .img9 {
+        filter: blur(5px);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      .img10 {
+        margin-top: 5vmin;
+        width:50%;
+        height: 10%;
+      }
+      .btn{
+        float: right;
+        margin-right: 4vmin;
+        margin-top: 1px;
+        bottom: 13vmin;
+      }
+      .btn1 {
+        padding: 3px 10px;
+      }
+      .para1 {
+        font-size: 1.3rem;
+        top: 11.5vmin;
+        left: 3vmin;
+        line-height: 4.5vmin;
+      }
+      .para2 {
+        font-size: 1.3rem;
+        top: 24vmin;
+        left: 3vmin;
+      }
+      .para3 {
+        font-size: 1rem;
+        top: 34vmin;
+        left: 3.5vmin;
+      }
+      .icons {
+        gap: 5px;
+        left: 4%;
+        bottom: 19%;
+      }
+      .icons img {
+        width: 4rem;
+      }
+      .icon1 img {
+        padding: 4px 20px;
+      }
+      .icon2 img {
+        padding: 4px 20px;
+      }
+      .para4 {
+        font-size: 1.5rem;
+        top: 5vmin;
+        left: 5vmin;
+        line-height: 5.5vmin;
+      }
+      .para5 {
+        font-size: 1.5rem;
+        top: 15vmin;
+        left: 5vmin;
+      }
+      .storediv {
+        width: 80%;
+        left: 11%;
+        height: 22%;
+        border-radius: 6px;
+      }
+      .para6 {
+        margin: 8px 6vmin;
+        color: white;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+      .para7 {
+        font-size: .8rem;
+        margin-top: 1vmin;
+        margin-left:5vmin;
+      }
+      .para8{
+        margin-top: 3vmin;
+        font-size: .4rem;
+        margin-right: 35vmin;
+      }
+      input {
+        width: 18%;
+        margin-top: .5vmin;
+        height: 6vmin;
+        margin-left: 3vmin;
+        margin-bottom: 3vmin;
+      }
+      input[type="text"] {
+        padding: 0px 3vmin;
+        font-size: .5rem; 
+      }
+      .end {
+        width: 100%;
+        height: 13vmin;
+        background-color: #2c7865;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      .item {
+        margin-top: 2vmin;
+        font-size: .5rem;
+      }
+      .item a {
+        font-size: .5rem;
+        text-decoration: none;
+        color: white;
+      }
+      }
+
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="nav">
+      <nav>
+        <ul>
+          <div class="logo">
+            <a href="" class="color">MR.SANDWICH</a>
+          </div>
+          <li>
+            <i class="fa-solid fa-house"></i><a href="" class="menucolor">HOME</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-bars"></i
+            ><a href="" class="menucolor">MENU</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-store"></i
+            ><a href="" class="menucolor">STORE LOCATOR</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-info"></i
+            ><a href="" class="menucolor">ABOUT US</a>
+          </li>
+          <div class="talk">
+            <a href="" class="color2">TALK TO US</a>
+          </div>
+        </ul>
+      </nav>
+    </div>
+    <div class="page1">
+      <img src="sandwich 3.jpg" alt="" class="img1" />
+      <p class="para1">WE GRILL<br />GOODNESS THAT<br />TASTES LIKE</p>
+      <p class="para2">OH MY GOODNESS!</p>
+      <p class="para3">ORDER NOW ON</p>
+      <div class="icons">
+        <div class="icon1">
+          <img src="swiggy.png" alt="" />
+        </div>
+        <div class="icon2">
+          <img src="Zomato.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="page2">
+      <img src="graybackground.jpg" alt="" class="img2" />
+      <p class="para4">GOODNESS THAT<br />TASTES LIKE</p>
+      <p class="para5">OH MY GOODNESS !</p>
+      <img src="bombay sandwich.webp" alt="" class="img3" />
+      <img src="cheese sandwich.jpg" alt="" class="img4" />
+      <img src="Chicken-sandwich.jpg" alt="" class="img5" />
+      <img src="delhisandwich.jpg" alt="" class="img6" />
+      <img src="clubsandwich.jpg" alt="" class="img7" />
+      <img src="clubsandwich2.jpg" alt="" class="img8" />
+    </div>
+    <div class="page4">
+      <div class="storediv">
+        <p class="para6">STORE LOCATOR</p>
+        <input type="text" placeholder="State" class="input1" />
+        <input type="text" placeholder="City" class="input2" />
+        <input type="text" placeholder="Area" class="input3" />
+        <div class="btn">
+        <button class="btn1">Submit</button>
+      </div>
+        <p class="para7">Please select the State and City to list the stores</p>
+        <p class="para8">
+            We believe that when you eat fresh, you think fresh; and we bring this
+            fresh thinking in all our endeavours. We<br> are committed to innovating
+            better, healthier, high-quality food that delights our customers. We
+            are dedicated to<br>fostering positive impact by providing sustainable
+            livelihoods to our suppliers and meaningful careers to our<br>team.<br><br><br>
+            Mr. sandwich India Pvt Limited (EIPL) has the master franchise rights to
+            open and operate mr.sandwich restaurants in<br>India, Sri Lanka and
+            Bangladesh. Mr. sandwich is set to expand freshness and power through the
+            mission of serving<br>healthy, tasty, and fresh food to everyone.<br><br><br>
+            India
+            is the largest market for EIPL and is focussed to expand Mr. sandwich
+            footprint aggressively. EIPL is a fully<br>owned subsidiary of Culinary
+            Brands Private Limited.
+        </p>
+      </div>
+        <img src="sandwichpng.png" alt="" class="img10"/>
+      <div class="end">
+        <div class="item">
+          Contact<br /><a href="">Customer Care</a><br /><a href="">Feedback</a>
+        </div>
+        <div class="item">
+          Mr. Sandwich Cares<br /><a href="">Nutrition Information</a>
+        </div>
+        <div class="item">
+          Legal<br /><a href="">Privacy policy</a><br /><a href=""
+            >Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
